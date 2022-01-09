@@ -1,0 +1,21 @@
+<br>
+<div class="container">
+    <h3>Add Article</h3>
+    <hr class="" style="align-items:left;">
+    <br>
+    <form for="/create" method="post">
+        <label for="">Author</label>
+        <input type="text" name="author" class="form-control" placeholder="your name ..." required min="3">
+        <label for="">Catagory</label>
+        <input type="text" name="catagory" class="form-control" placeholder="your tag" required min="4">
+        <label for="">Heading</label>
+        <input type="text" name="heading" class="form-control" placeholder="Type ..." required minlength="5">
+        <label for="">Sub heading</label>
+        <input type="text" name="subheading" class="form-control" placeholder="Add caption ..." required minlength="30">
+        <label for="">paragraph</label>
+        <textarea name="paragraph" class="form-control" id="" cols="30" rows="10" required
+            minlength="50">Your Article...</textarea>
+        <br>
+        <button type="submit" class="btn btn-success btn-md">POST Article</button>
+    </form>
+</div>

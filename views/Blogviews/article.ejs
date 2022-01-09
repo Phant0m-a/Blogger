@@ -1,0 +1,45 @@
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center bg-dark text-light"
+    style="margin-top:-50px;margin-bottom:-50px">
+    <br>
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <h3 class="masthead-brand">BLOGGER's Read</h3>
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link active" href="http://localhost:3000/">Home</a>
+                <a class="nav-link" href="http://localhost:3000/API/welcome">Admin</a>
+                <a class="nav-link" href="#">Features</a>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading">
+            <%=data.data().heading%>
+        </h1>
+        <p class="lead" style="text-align: justify;">
+            <%=data.data().paragraph%>
+        </p>
+        <p class="lead">
+            <a class="btn btn-lg btn-secondary">
+                <%=data.data().author%>
+            </a>
+        </p>
+    </main>
+
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>Blogger's app @2022.</p>
+        </div>
+    </footer>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+  ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="../../assets/js/vendor/popper.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>

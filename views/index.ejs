@@ -1,0 +1,190 @@
+<br>
+<!-- blog start-->
+
+<div class="container">
+    <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
+                <a class="text-muted" href="#">Subscribe</a>
+            </div>
+            <div class="col-4 text-center">
+                <a class="blog-header-logo text-dark" href="#">BLOGGER'S</a>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <a class="text-muted" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="mx-3">
+                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                        <line x1="21" y1="21" x2="15.8" y2="15.8"></line>
+                    </svg>
+                </a>
+                <a class="btn btn-sm btn-outline-secondary" href="http://localhost:3000/API/welcome">Sign up</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+            <a class="p-2 text-muted" href="#">World</a>
+            <a class="p-2 text-muted" href="#">U.S.</a>
+            <a class="p-2 text-muted" href="#">Technology</a>
+            <a class="p-2 text-muted" href="#">Design</a>
+            <a class="p-2 text-muted" href="#">Culture</a>
+            <a class="p-2 text-muted" href="#">Business</a>
+            <a class="p-2 text-muted" href="#">Politics</a>
+            <a class="p-2 text-muted" href="#">Opinion</a>
+            <a class="p-2 text-muted" href="#">Science</a>
+            <a class="p-2 text-muted" href="#">Health</a>
+            <a class="p-2 text-muted" href="#">Style</a>
+            <a class="p-2 text-muted" href="#">Travel</a>
+        </nav>
+    </div>
+
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 font-italic">Welcome to the BLOGGER'S APP</h1>
+            <p class="lead my-3">Blogging is to writing what extreme sports are to athletics: more free-form, more
+                accident-prone, less formal, more alive. It is, in many ways, writing out loud.</p>
+            <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">....</a></p>
+        </div>
+    </div>
+
+    <div class="container-fluid content-row" style="height: 500px;">
+        <div class=" row md-2">
+            <% heads.forEach((doc)=>{ %>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                        <div class="card-body d-flex flex-column align-items-start">
+                            <strong class="d-inline-block mb-2 text-primary">
+                                <%=doc.data().catagory%>
+                            </strong>
+                            <h3 class="mb-0">
+                                <a class="text-dark" href="#">
+                                    <%=doc.data().heading%>
+                                </a>
+                            </h3>
+                            <div class="mb-1 text-muted">
+                                <%=doc.data().date.toDate().toDateString()%>
+                            </div>
+                            <p class="card-text mb-auto">
+                                <%=doc.data().subheading%>
+                            </p>
+                            <a href="http://localhost:3000/article/<%=doc.id%>">Continue reading</a>
+                        </div>
+                        <!-- <img class="card-img-right flex-auto d-none d-md-block" width="250px" height="250px"
+                            src="<%=doc.data().img%>" alt="Card image cap"> -->
+                    </div>
+                </div>
+                <%})%>
+
+        </div>
+    </div>
+
+</div><br><br><br>
+</div>
+
+
+
+
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-8 blog-main">
+            <br><br>
+            <h3 class="pb-3 mb-4 font-italic border-bottom">
+                Latest Articles
+            </h3>
+            <% blogData.forEach((doc)=>{ %>
+
+                <div class="blog-post">
+                    <h2 class="blog-post-title">
+                        <%=doc.data().heading%>
+                    </h2>
+                    <p class="blog-post-meta">
+                        <% let temp=doc.data().date.toDate().toDateString() %>
+                            <% let sliced=temp.slice(4, temp.lenght) %>
+                                <% let n_version=sliced.replace(' ', ' ')%>
+                                    <% let final=n_version.replace(' ', ' ') %>
+                                        <%=final%> by <a href="#">
+                                                <%=doc.data().author%>
+                                            </a>
+                    </p>
+
+                    <p class="text-wrap">
+                        <%=doc.data().subheading%>
+                    </p>
+                    <hr>
+                    <p class="text-wrap text-dark" style="font-size: 18px;text-align: justify;">
+                        <%=doc.data().paragraph%>
+                    </p>
+
+                </div>
+                <%})%>
+                    <!-- /.blog-post -->
+
+                    <!-- <nav class="blog-pagination">
+                        <a class="btn btn-outline-primary" href="#">Older</a>
+                        <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+                    </nav> -->
+
+        </div><!-- /.blog-main -->
+
+        <aside class="col-md-4 blog-sidebar">
+            <div class="p-3 mb-3 bg-light rounded">
+                <h4 class="font-italic">About</h4>
+                <p class="mb-0">This App is built with NODE JS<em>(Express framework)</em> And 
+                    Firebase as Database. Bootstrap is used as frontend framework. Signup on the app to publish your own articles!</p>
+            </div>
+
+            <div class="p-3">
+                <h4 class="font-italic">Archives</h4>
+                <ol class="list-unstyled mb-0">
+                    <li><a href="#">March 2014</a></li>
+                    <li><a href="#">February 2014</a></li>
+                    <li><a href="#">January 2014</a></li>
+                    <li><a href="#">December 2013</a></li>
+                    <li><a href="#">November 2013</a></li>
+                    
+                </ol>
+            </div>
+
+            <div class="p-3">
+                <h4 class="font-italic">Elsewhere</h4>
+                <ol class="list-unstyled">
+                    <li><a href="https://github.com/Phant0m-a">GitHub</a></li>
+                    <li><a href="https://twitter.com/W_Ahsan_Ali">Twitter</a></li>
+                    <li><a href="https://facebook.com/ahsanali">Facebook</a></li>
+                </ol>
+            </div>
+        </aside><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+    
+<footer class="blog-footer">
+    <p>App built by <a href="https://github.com/Phant0m-a">Ahsan Ali</a>And  <a
+            href="https://github.com/Iamabdulquddus">Abdul Quddus</a>.</p>
+    
+</footer>
+
+</main><!-- /.container -->
+
+<!-- Bootstrap core JavaScript
+  ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write(' <script src="../../assets/js/vendor/jquery-slim.min.js">
+            <\ /script>')</script>
+                                        <script src="../../assets/js/vendor/popper.min.js"></script>
+                                        <script src="../../dist/js/bootstrap.min.js">
+                                        </script>
+                                        <script src="../../assets/js/vendor/holder.min.js"></script>
+                                        <script>
+    Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+    });
+                                        </script><!-- blog end -->
