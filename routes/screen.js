@@ -486,18 +486,18 @@ router.get('/writingType/:type', auth, (req, res) => {
 
 
 // home route
-router.get('/home', (req, res) => {
+router.get('/home', auth, (req, res) => {
     res.render('Blogviews/home.ejs');
 })
 
 // home route
-router.get('/create', async (req, res) => {
+router.get('/create', auth, async (req, res) => {
 
     // let data = await dbs.collection('quizzes').get();
 
     res.render('admin/create.ejs', {});
 })
-router.post('/create', async (req, res) => {
+router.post('/create', auth, async (req, res) => {
 
     let id = UUID();
     let date = new Date();
@@ -511,7 +511,7 @@ router.post('/create', async (req, res) => {
         catagory: req.body.catagory
     });
 
- 
+
     res.redirect('/API/home');
 })
 
